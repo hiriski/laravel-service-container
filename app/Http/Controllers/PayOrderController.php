@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Billing\PaymentGateway;
+use App\Billing\PaymentGatewayContract;
 use App\Orders\OrderDetail;
 
 class PayOrderController extends Controller
 {
-    public function __invoke(OrderDetail $orderDetail, PaymentGateway $paymentGateway)
+    public function __invoke(OrderDetail $orderDetail, PaymentGatewayContract $paymentGateway)
     {
         $orderDetail->all();
 
-        dd($paymentGateway->charge(5));
+        dd($paymentGateway->charge(2500));
     }
 }

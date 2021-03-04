@@ -2,20 +2,20 @@
 
 namespace App\Orders;
 
-use App\Billing\PaymentGateway;
+use App\Billing\PaymentGatewayContract;
 
 class OrderDetail
 {
     private $paymentGateway;
 
-    public function __construct(PaymentGateway $paymentGateway)
+    public function __construct(PaymentGatewayContract $paymentGateway)
     {
         $this->paymentGateway = $paymentGateway;
     }
 
     public function all(): array
     {
-        $this->paymentGateway->setDiscount(2);
+        $this->paymentGateway->setDiscount(200);
 
         return [
             'name' => 'Kevin Abrar Khansa',
